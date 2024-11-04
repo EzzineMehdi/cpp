@@ -56,6 +56,8 @@ int	main(int ac, char **av)
 		parseFirstLine(str);
 		while (getline(file, str))
 		{
+			if (!str.size())
+				continue ;
 			try
 			{
 				parseInput(str, b);

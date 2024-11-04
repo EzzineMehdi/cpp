@@ -51,6 +51,7 @@ int	main(int ac, char **av)
 			return 1;
 		}
 
+		std::cout.precision(10);
 		std::string	str;
 		getline(file, str);
 		parseFirstLine(str);

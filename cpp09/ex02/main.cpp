@@ -20,9 +20,9 @@ int main(int ac, char **av)
 		deque.runAlgo();
 		vector.show("after");
 		std::cout << "Time to process a range of	"
-			<< (ac - 1) << " elements with std::vector : " << std::fixed << vector.getTime() << " us" << std::endl;
+			<< (ac - 1) << " elements with std::vector : " << std::fixed << vector.getTime() << " s" << std::endl;
 		std::cout << "Time to process a range of	"
-			<< (ac - 1) << " elements with std::deque : " << std::fixed << deque.getTime() << " us" << std::endl;
+			<< (ac - 1) << " elements with std::deque : " << std::fixed << deque.getTime() << " s" << std::endl;
 	}
 	catch(const std::exception& e)
 	{

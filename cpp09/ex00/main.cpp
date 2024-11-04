@@ -1,5 +1,13 @@
 #include "BitcoinExchange.hpp"
 
+std::string	isOne(const std::string &str)
+{
+	std::map<size_t, std::string> strs = split(str, " \t");
+	if (strs.size() != 1)
+		throw std::runtime_error("Error: " + str + " is not a number");
+	return strs[0];
+}
+
 bool	isFloat(const std::string &str)
 {
 	std::map<size_t, std::string>	strs = split(str, ".");
@@ -20,13 +28,17 @@ void	parseInput(const std::string &str, const BitcoinExchange &b)
 		throw std::runtime_error("Error: bad input => " + str);
 	
 	Date date(strs[0]);
-		data[0] = b.getPrice(date);
-	if (!isDigit(strs[1]) && !isFloat(strs[1]))
-		throw std::runtime_error("Error: bad input => " + str);
+	data[0] = b.getPrice(date);
+
 	data[1] = atof(strs[1].c_str());
 	if (data[1] < 0 || data[1] > 1000)
 		throw data[1] < 0 ? std::runtime_error("Error: not a positive number.")
 			: std::runtime_error("Error: too large number.");
+
+	strs[1] = isOne(strs[1]);
+	if (!isDigit(strs[1]) && !isFloat(strs[1]))
+		throw std::runtime_error("Error: bad input => " + str);
+
 	std::cout << date << " => " << data[1] << " = " << data[0] * data[1] << std::endl;
 }
 

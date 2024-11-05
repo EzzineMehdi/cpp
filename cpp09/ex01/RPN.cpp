@@ -48,10 +48,10 @@ std::stack<std::string>	split(const std::string &str, const std::string &seps)
 		else
 			throw std::runtime_error("Error: Operand out of syntax");
 		if (tmp <= 0)
-			throw std::runtime_error("Error: Few many numbers");
+			throw std::runtime_error("Error: Syntax error");
 	}
 	if (tmp != 1)
-		throw std::runtime_error("Error: Too many numbers");
+		throw std::runtime_error("Error: Syntax error");
 	return con;
 }
 
